@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script id="filemapjs" src="mapngaji.js"></script>
+<style>
+  .bingkai1 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 1;
+      width:max-content;
+    }
+
+    /* Gambar kedua */
+    .bingkai2 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 2;
+      width: 100%;
+    }
+    .bingkai {
+      border: 1px;
+    }
+
+    .cvnbingkai {
+      background-color:antiquewhite;
+    }
+    .u640_390x {
+      width: 390px;
+      height: 640;
+    }
+    .u640_390 {
+      width: 400px;
+      height: 640;
+    }
+    .bening {
+      color: transparent;
+    }
+    .hilang {
+      display: none;
+    }
+    .tampak {
+      display: block;
+    }
+</style>  <title>Ayo Ngaji</title>
+</head>
+<BODY style="font-size: 20px;">
+  <table width="100%" class="utkadm" border="0px">
+    <tr  class="hilang" align="center" style="font-size: 25px;"><td>Ayo Mengaji</td></tr>
+    <tr>
+      <div align="center">
+        <audio controls id="ctrl_iwr4_3" width="100px">
+          <source id="src_iwr4_3" type="audio/mpeg">
+        </audio><br>
+<div class="hilang">
+        nomor <input id="noarea" type="number" value="1" style="font-size: 25px;"><br>
+        mulai <input id="aud1" type="number" value="0" style="font-size: 25px;" onfocus="aud2keaud1();">
+        akhir <input id="aud2" type="number" value="0" style="font-size: 25px;" onfocus="ambilposaud();"><br>
+
+        x1 <input id="x1" type="number" value="0" style="font-size: 25px;">
+        y1 <input id="y1" type="number" value="0" style="font-size: 25px;"><br>
+
+        x2 <input id="x2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();">
+        y2 <input id="y2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();"><br>
+
+        <button onclick="startt()" style="font-size: 25px;">Tes Posisi</button>
+        <button id="mulaiberhenti" onclick="mulaiberhenti()" style="font-size: 25px;background-color: rgba(21, 166, 21, 0.564);" value="berhenti">Start/Stop</button>
+        <button onclick="susun()" style="font-size: 25px;background-color: rgb(243, 187, 67);">Buat Area</button><br>
+</div>
+        Pilih <select name="iwrs" id="iwrs" onchange="gambar()" style="font-size: 25px;background-color: rgba(168, 243, 242, 0.309);">
+          <option value="doa_awal">Doa Penawar Hati</option>
+          <option value="doa_akhir">Doa Sesudah Belajar</option>
+          <option value="doa_setelah_adzan">Doa Sesudah Adzan</option>
+          </select><br>
+          <a href="index.html" ><button  style="font-size: 25px;background-color: rgba(122, 122, 243, 0.496);">Halaman Utama</button></a><br>
+      </div>
+    </td></tr>
+    <tr align="center">
+      <td>
+        <div class="bingkai" style="vertical-align: top;">
+          <video controls id="vctrl_iwr4_3" width="640" height="360" class="hilang hilangx">
+            <source id="vsrc_iwr4_3" type="video/mp4">
+          </video><br>
+            <img id="ibingkai1" usemap="#mapiwr4_1" class="xbingkai1 u640_390" src="imgs/iwr4_2.png" onclick="getMousePosition(event)"  ondblclick="getMousePosition2(event)">
+          <img id="ibingkai2" class="xbingkai2 beningx hilangx hilang " src="imgs/iwr4_2.png" >
+                        
+          <map name="mapdoa_awal">
+            <area shape="rect" coords="0.3809814453125, 1.2559814453125, 395.3809814453125, 56.2559814453125 " onclick="start1(0, 6.810029, 1);">
+            <area shape="rect" coords="2.3809814453125, 64.2559814453125, 395.3809814453125, 108 " onclick="start1(6.810029, 12.236699, 2);">
+            <area shape="rect" coords="0.3809814453125, 109, 394.3809814453125, 119 " onclick="start1(0, 76.199184, 0);">            
+            <area shape="rect" coords="3.3809814453125, 120.2559814453125, 397.3809814453125, 167.2559814453125 " onclick="start1(12.236699, 17.20186, 3);">
+            <area shape="rect" coords="3.3809814453125, 174.2559814453125, 395.3809814453125, 218.2559814453125 " onclick="start1(16.842536, 19.331128, 4);">
+            <area shape="rect" coords="0.3809814453125, 222.2559814453125, 394.3809814453125, 277.2559814453125 " onclick="start1(19.331128, 21.358039, 5);">
+            <area shape="rect" coords="4.3809814453125, 280.2559814453125, 394.3809814453125, 326.2559814453125 " onclick="start1(21.358039, 24.282429, 6);">
+            <area shape="rect" coords="4.3809814453125, 333.11309814453125, 395.3809814453125, 376.11309814453125 " onclick="start1(24.256598, 27.608624, 7);">            
+            <area shape="rect" coords="1.3809814453125, 384.1607208251953, 397.3809814453125, 435.1607208251953 " onclick="start1(27.688509, 31.574816, 7);">
+            <area shape="rect" coords="5.761962890625, 442.9702453613281, 390.761962890625, 496.9702453613281 " onclick="start1(31.574816, 36.101243, 8);">
+            <area shape="rect" coords="5.761962890625, 507.9702453613281, 393.761962890625, 568.9702453613281 " onclick="start1(36.101243, 39.799811, 9);">
+            <area shape="rect" coords="9.761962890625, 570.9702453613281, 391.761962890625, 625.9702453613281 " onclick="start1(39.799811, 44.126364, 10);">
+            <area shape="rect" coords="7.761962890625, 631.9702453613281, 391.761962890625, 684.9702453613281 " onclick="start1(44.126364, 49.926176, 11);">
+            <area shape="rect" coords="11.761962890625, 699.9702453613281, 391.761962890625, 753.9702453613281 " onclick="start1(49.926176, 56.261285, 12);">
+            <area shape="rect" coords="7.761962890625, 766.9702453613281, 393.761962890625, 819.9702453613281 " onclick="start1(56.261285, 62.362307, 13);">
+            <area shape="rect" coords="5.761962890625, 829.9702453613281, 393.761962890625, 878.9702453613281 " onclick="start1(62.362307, 64.8, 14);">
+            <area shape="rect" coords="5.761962890625, 881.0654907226562, 390.761962890625, 935.0654907226562 " onclick="start1(64.8, 68.1, 15);">
+            <area shape="rect" coords="3.761962890625, 938.0654907226562, 390.761962890625, 997.0654907226562 " onclick="start1(68.1, 70.6, 16);">          </map>            
+                        
+          <map name="mapdoa_akhir">
+            <area shape="rect" coords="2.77484130859375, 3.2068634033203125, 394.77484130859375, 354.2068634033203 " onclick="start1(0, 65.854694, 1);">
+          </map>            
+                        
+          <map name="mapdoa_setelah_adzan">
+            <area shape="rect" coords="7.77484130859375, 6.794158935546875, 392.77484130859375, 527.0322427749634 " onclick="start1(1.910672, 24.291543, 1);">
+          </map>  
+          
+         <canvas id="canvas" class="cvnbingkai hilang hilangx" width="100px" height="100px"></canvas>
+        </div>
+
+      <div>
+        <textarea id="displog" class="hilang" rows="30" cols="200">
+        </textarea>
+      </div>
+
+        <div>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script lang="javascript">
+//  document.getElementById("filemapjs").src="mapngaji.js";
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr4_3").src=nmfile;
+  document.getElementById("src_iwr4_3").src=nmfile;
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  document.getElementById('ibingkai1').src = nmpng;
+
+function mulai() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+         	var nmvidio = document.getElementById("vctrl_iwr4_3");
+          setTimeout(function () {
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+}
+
+function berhenti() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+         	var nmvidio = document.getElementById("vctrl_iwr4_3");
+          setTimeout(function () {
+            nmaudio.pause();
+            nmvidio.pause();
+          }, 0 * 1000);
+}
+
+function mulaiberhenti() {
+          var nmaudio = document.getElementById("ctrl_iwr4_3");
+          var nmvidio = document.getElementById("vctrl_iwr4_3");
+          var stt = document.getElementById("mulaiberhenti").value;
+          setTimeout(function () {
+            if (stt=="mulai") {
+              nmaudio.pause();
+              nmvidio.pause();
+              document.getElementById("mulaiberhenti").value="berhenti";
+            } else {
+              nmaudio.play();
+              nmvidio.play();
+              document.getElementById("mulaiberhenti").value="mulai";
+            }
+          }, 0 * 1000);
+}
+
+function gambar()
+{
+  document.getElementById("filemapjs").src="mapngajix.js";
+
+  document.getElementById("noarea").value=1;
+  var nmlogs = document.getElementById("displog");
+  nmlogs.append('\n    <map name="map'+document.getElementById("iwrs").value+'">\n');
+
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  nmmap="#map"+document.getElementById("iwrs").value;
+  document.getElementById('ibingkai1').src = nmpng;
+
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr4_3").src=nmfile;
+  document.getElementById("src_iwr4_3").src=nmfile;
+
+  vnmfile="vidio/"+document.getElementById("iwrs").value+".mp4";
+  document.getElementById("vctrl_iwr4_3").src=vnmfile;
+  document.getElementById("vsrc_iwr4_3").src=vnmfile;
+  
+  document.getElementById('ibingkai1').useMap=nmmap;
+}
+function getMousePosition(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x1').value = x;
+      document.getElementById('y1').value = y;
+}
+function getMousePosition2(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x2').value = x;
+      document.getElementById('y2').value = y;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+      ambilposaud();
+}
+function x1kex2()
+{
+      document.getElementById('x2').value = document.getElementById('x1').value;
+      document.getElementById('y2').value = document.getElementById('y1').value;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+}      
+
+function startt() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+           var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stopt(aud1,aud2);
+}
+function stopt(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+          nmlogs.res;
+}
+function start1(aud1,aud2,no) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stop1(aud1,aud2);
+}
+function stop1(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+}
+function ambilposaud() {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var nmlogs = document.getElementById("displog");
+          document.getElementById("aud2").value=nmaudio.currentTime;
+}
+function aud2keaud1()
+{
+          if (document.getElementById('aud2').value!=0) {
+            document.getElementById('aud1').value = document.getElementById('aud2').value;
+            document.getElementById('aud2').value = 0;
+          }
+}
+function susun() {
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var noarea = document.getElementById("noarea").value;
+          document.getElementById("noarea").value=parseInt(noarea)+1;
+        	var x1 = document.getElementById("x1").value;
+        	var y1 = document.getElementById("y1").value;
+        	var x2 = document.getElementById("x2").value;
+        	var y2 = document.getElementById("y2").value;
+        	nmlogs.append('<area shape="rect" coords="'+x1+', '+y1+', '+x2+', '+y2+' " onclick="start1('+aud1+', '+ aud2+', '+noarea+');">\n');
+          document.getElementById('x2').value = 0
+          document.getElementById('y2').value = 0
+          document.getElementById('x1').value = 0;
+          document.getElementById('y1').value = 0;
+        	document.getElementById("aud1").value=document.getElementById("aud2").value;
+        	document.getElementById("aud2").value=0;
+
+
+          //nmlogs.append('\n    </map>\n');
+}
+
+  
+</script>

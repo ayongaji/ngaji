@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script id="filemapjs" src="mapngaji.js"></script>
+<style>
+  .bingkai1 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 1;
+      width:max-content;
+    }
+
+    /* Gambar kedua */
+    .bingkai2 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 2;
+      width: 100%;
+    }
+    .bingkai {
+      border: 1px;
+    }
+
+    .cvnbingkai {
+      background-color:antiquewhite;
+    }
+    .u640_390x {
+      width: 390px;
+      height: 640;
+    }
+    .u640_390 {
+      width: 400px;
+      height: 640;
+    }
+    .bening {
+      color: transparent;
+    }
+    
+    .hilang {
+      display: none;
+    }
+    .tampak {
+      display: block;
+    }
+</style>  <title>Ayo Ngaji</title>
+</head>
+<BODY style="font-size: 20px;">
+  <table width="100%" class="utkadm" border="0px">
+    <tr  class="hilang" align="center" style="font-size: 25px;"><td>Ayo Mengaji</td></tr>
+    <tr>
+      <div align="center">
+        <audio controls id="ctrl_iwr4_3" width="100px">
+          <source id="src_iwr4_3" type="audio/mpeg">
+        </audio><br>
+<div class="hilang">
+        nomor <input id="noarea" type="number" value="1" style="font-size: 25px;"><br>
+        mulai <input id="aud1" type="number" value="0" style="font-size: 25px;" onfocus="aud2keaud1();">
+        akhir <input id="aud2" type="number" value="0" style="font-size: 25px;" onfocus="ambilposaud();"><br>
+
+        x1 <input id="x1" type="number" value="0" style="font-size: 25px;">
+        y1 <input id="y1" type="number" value="0" style="font-size: 25px;"><br>
+
+        x2 <input id="x2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();">
+        y2 <input id="y2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();"><br>
+
+        <button onclick="startt()" style="font-size: 25px;">Tes Posisi</button>
+        <button id="mulaiberhenti" onclick="mulaiberhenti()" style="font-size: 25px;background-color: rgba(21, 166, 21, 0.564);" value="berhenti">Start/Stop</button>
+        <button onclick="susun()" style="font-size: 25px;background-color: rgb(243, 187, 67);">Buat Area</button><br>
+</div>
+        Pilih <select name="iwrs" id="iwrs" onchange="gambar()" style="font-size: 25px;background-color: rgba(168, 243, 242, 0.309);">
+          <option value="huruf_asal_keluar">Keluarnya Huruf Hijaiyah</option>
+          <option value="huruf_tenggorokan">Huruf Tenggorokan</option>
+          <option value="huruf_lidah">Huruf Lidah</option>
+          <option value="huruf_ujung_lidah">Huruf Ujung Lidah</option>
+          <option value="huruf_bibir">Huruf Bibir</option>
+          <option value="huruf_a">Pengucapan Huruf Hijaiyah 1</option>
+          <option value="huruf_sy">Pengucapan Huruf Hijaiyah 2</option>
+          <option value="huruf_qq">Pengucapan Huruf Hijaiyah 3</option>
+          </select><br>
+          <a href="index.html" ><button  style="font-size: 25px;background-color: rgba(122, 122, 243, 0.496);">Halaman Utama</button></a><br>
+      </div>
+    </td></tr>
+    <tr align="center">
+      <td>
+        <div class="bingkai" style="vertical-align: top;">
+          <video controls id="vctrl_iwr4_3" width="640" height="360" class="hilang hilangx">
+            <source id="vsrc_iwr4_3" type="video/mp4">
+          </video><br>
+          <img id="ibingkai1" usemap="#maphuruf_asal_keluar" class="xbingkai1 u640_390" src="imgs/iwr4_2.png" onclick="getMousePosition(event)"  ondblclick="getMousePosition2(event)">
+          <img id="ibingkai2" class="xbingkai2 beningx hilangx hilang " src="imgs/iwr4_2.png" >
+          <map name="maphuruf_a">
+            <area shape="rect" coords="3.116455078125, 4.16668701171875, 396.116455078125, 35.16668701171875 " onclick="start1(0.3, 16.181126, 1);">
+            <area shape="rect" coords="6.116455078125, 38.16668701171875, 397.116455078125, 68.16668701171875 " onclick="start1(19.534371, 37.12627, 2);">
+            <area shape="rect" coords="2.116455078125, 72.16668701171875, 397.116455078125, 103.16668701171875 " onclick="start1(41.066952, 57.651622, 3);">
+            <area shape="rect" coords="10.116455078125, 111.16668701171875, 397.116455078125, 138.16668701171875 " onclick="start1(64.398107, 81.018214, 4);">
+            <area shape="rect" coords="4.116455078125, 144.16668701171875, 398.116455078125, 174.16668701171875 " onclick="start1(84.936637, 103.172455, 5);">
+            <area shape="rect" coords="7.116455078125, 179.16668701171875, 395.116455078125, 211.16668701171875 " onclick="start1(107.370559, 124.035872, 6);">
+            <area shape="rect" coords="4.116455078125, 216.16668701171875, 396.116455078125, 248.16668701171875 " onclick="start1(128.917187, 146.038021, 7);">
+            <area shape="rect" coords="7.116455078125, 252.16668701171875, 393.116455078125, 281.16668701171875 " onclick="start1(177.301363, 194.395586, 8);">
+            <area shape="rect" coords="6.116455078125, 286.16668701171875, 393.116455078125, 316.16668701171875 " onclick="start1(194.395586, 210.933554, 9);">
+            <area shape="rect" coords="7.116455078125, 320.52647399902344, 395.116455078125, 350.52647399902344 " onclick="start1(232.751637, 247.094958, 10);">
+            <area shape="rect" coords="7.116455078125, 357.52647399902344, 397.116455078125, 388.52647399902344 " onclick="start1(250.162704, 267.496803, 11);">
+            <area shape="rect" coords="9.116455078125, 392.52647399902344, 397.116455078125, 420.52647399902344 " onclick="start1(270.878514, 288.105614, 12);">
+          </map>
+
+          <map name="maphuruf_sy">
+            <area shape="rect" coords="3.77484130859375, 2.571929931640625, 396.77484130859375, 34.571929931640625 " onclick="start1(3.44149, 22.5, 1);">
+            <area shape="rect" coords="4.77484130859375, 38.571929931640625, 395.77484130859375, 68.57192993164062 " onclick="start1(25.709143, 43.353557, 2);">
+            <area shape="rect" coords="7.77484130859375, 75.57192993164062, 394.77484130859375, 104.57192993164062 " onclick="start1(58.846067, 74.681822, 3);">
+            <area shape="rect" coords="6.77484130859375, 109.57192993164062, 396.77484130859375, 138.57192993164062 " onclick="start1(78.142267, 95.06165, 4);">
+            <area shape="rect" coords="5.77484130859375, 144.57192993164062, 395.77484130859375, 175.57192993164062 " onclick="start1(98.763622, 115.702984, 5);">
+            <area shape="rect" coords="6.77484130859375, 179.57192993164062, 395.77484130859375, 210.57192993164062 " onclick="start1(121.754964, 136.62529, 6);">
+            <area shape="rect" coords="8.77484130859375, 213.57192993164062, 396.77484130859375, 248.57192993164062 " onclick="start1(160.063475, 175.65852, 7);">
+            <area shape="rect" coords="3.77484130859375, 249.57192993164062, 396.77484130859375, 280.5719299316406 " onclick="start1(179.87535, 197.3, 8);">
+          </map>            
+          <map name="maphuruf_qq">
+            <area shape="rect" coords="4.77484130859375, 2.9846343994140625, 394.77484130859375, 34.98463439941406 " onclick="start1(3.093558, 21.086174, 1);">
+            <area shape="rect" coords="3.77484130859375, 36.571929931640625, 396.77484130859375, 69.57192993164062 " onclick="start1(23.880465, 41.66036, 2);">
+            <area shape="rect" coords="10.77484130859375, 74.57192993164062, 397.77484130859375, 104.57192993164062 " onclick="start1(68.479299, 83.884047, 3);">
+            <area shape="rect" coords="3.77484130859375, 108.57192993164062, 395.77484130859375, 138.57192993164062 " onclick="start1(87.371802, 104.883613, 4);">
+            <area shape="rect" coords="6.77484130859375, 145.57192993164062, 395.77484130859375, 169.57192993164062 " onclick="start1(109.08778, 126.919329, 5);">
+            <area shape="rect" coords="8.77484130859375, 176.57192993164062, 396.77484130859375, 200.57192993164062 " onclick="start1(153.363746, 169.621364, 6);">
+            <area shape="rect" coords="4.77484130859375, 208.57192993164062, 395.77484130859375, 237.57192993164062 " onclick="start1(179.926947, 195.544357, 7);">
+            <area shape="rect" coords="3.77484130859375, 240.98463439941406, 396.77484130859375, 275.98463439941406 " onclick="start1(215.968225, 232.32778, 8);">
+
+          </map>            
+
+          <map name="maphuruf_tenggorokan">
+            <area shape="rect" coords="335.77484130859375, 328.81002044677734, 377.77484130859375, 362.81002044677734 " onclick="start1(53.650237, 95.817964, 1);">
+            <area shape="rect" coords="271.77484130859375, 331.98463439941406, 337.77484130859375, 369.98463439941406 " onclick="start1(102.06327, 145.45432, 2);">
+            <area shape="rect" coords="329.77484130859375, 286.98463439941406, 376.77484130859375, 319.98463439941406 " onclick="start1(149.773223, 192.5, 1);">
+            <area shape="rect" coords="284.77484130859375, 285.98463439941406, 328.77484130859375, 322.98463439941406 " onclick="start1(199.388476, 243.5, 2);">
+            <area shape="rect" coords="318.77484130859375, 236.57192993164062, 363.77484130859375, 275.5719299316406 " onclick="start1(243.5, 282.2, 3);">
+            <area shape="rect" coords="267.77484130859375, 234.57192993164062, 320.77484130859375, 276.5719299316406 " onclick="start1(282.2, 313.933834, 4);">
+          </map>            
+
+          <map name="maphuruf_lidah">
+            <area shape="rect" coords="287.77484130859375, 211.23861694335938, 303.77484130859375, 247.23861694335938 " onclick="start1(97.766517, 149.940834, 1);">
+            <area shape="rect" coords="264.77484130859375, 209.23861694335938, 281.77484130859375, 240.23861694335938 " onclick="start1(152.91928, 218.096524, 2);">
+            <area shape="rect" coords="194.77484130859375, 217.23861694335938, 237.77484130859375, 253.23861694335938 " onclick="start1(235.670426, 299.273702, 3);">
+            <area shape="rect" coords="246.77484130859375, 192.23861694335938, 261.77484130859375, 221.23861694335938 " onclick="start1(315.269204, 364.539012, 4);">
+            <area shape="rect" coords="228.77484130859375, 185.825927734375, 245.77484130859375, 204.825927734375 " onclick="start1(386.57288, 434.197091, 5);">
+            <area shape="rect" coords="211.77484130859375, 182.825927734375, 228.77484130859375, 207.825927734375 " onclick="start1(455.922353, 474.811318, 6);">
+          </map>            
+
+          <map name="maphuruf_bibir">
+            <area shape="rect" coords="62.77484130859375, 186.23861694335938, 103.77484130859375, 215.65130615234375 " onclick="start1(42, 126.775295, 1);">
+            <area shape="rect" coords="49.77484130859375, 130.23861694335938, 71.77484130859375, 161.23861694335938 " onclick="start1(129.761299, 184.726314, 2);">
+            <area shape="rect" coords="23.77484130859375, 123.825927734375, 47.77484130859375, 163.825927734375 " onclick="start1(200, 252.530158, 3);">
+            <area shape="rect" coords="7.77484130859375, 116.825927734375, 22.77484130859375, 172.825927734375 " onclick="start1(268.583067, 327.39581, 4);">
+          </map>            
+
+          <map name="maphuruf_ujung_lidah">
+            <area shape="rect" coords="219.77484130859375, 160.23861694335938, 245.77484130859375, 186.23861694335938 " onclick="start1(31.794938, 78.887126, 1);">
+            <area shape="rect" coords="191.77484130859375, 150.23861694335938, 211.77484130859375, 182.23861694335938 " onclick="start1(95.250555, 147.661535, 2);">
+            <area shape="rect" coords="170.116455078125, 141.84393310546875, 189.116455078125, 165.84393310546875 " onclick="start1(165.345411, 203.771069, 3);">
+            <area shape="rect" coords="152.3809814453125, 144.87503051757812, 171.3809814453125, 168.87503051757812 " onclick="start1(223.721688, 367.925559, 4);">
+            <area shape="rect" coords="137.95440673828125, 152.72817993164062, 149.95440673828125, 180.72817993164062 " onclick="start1(371.638923, 430.676422, 5);">
+            <area shape="rect" coords="126.95440673828125, 161.96627807617188, 140.95440673828125, 185.96627807617188 " onclick="start1(468, 497.259499, 6);">
+            <area shape="rect" coords="117.2672119140625, 170.69576454162598, 128.2672119140625, 189.69576454162598 " onclick="start1(515.134177, 550.571752, 7);">
+            <area shape="rect" coords="118.95440673828125, 194.6964292526245, 131.95440673828125, 215.6964292526245 " onclick="start1(566.352162, 597.322781, 8);">
+            <area shape="rect" coords="143.6666259765625, 218.74602508544922, 153.6666259765625, 236.74602508544922 " onclick="start1(612.710544, 648.332667, 9);">
+            <area shape="rect" coords="132.9263153076172, 212.81859588623047, 139.9263153076172, 224.81859588623047 " onclick="start1(651.009394, 679.214346, 10);">
+          </map>            
+
+          <map name="mapngaji">
+          </map>            
+         <canvas id="canvas" class="cvnbingkai hilang hilangx" width="100px" height="100px"></canvas>
+        </div>
+
+      <div>
+        <textarea id="displog" class="hilang" rows="30" cols="200">
+        </textarea>
+      </div>
+
+        <div>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script lang="javascript">
+//  document.getElementById("filemapjs").src="mapngaji.js";
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr4_3").src=nmfile;
+  document.getElementById("src_iwr4_3").src=nmfile;
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  document.getElementById('ibingkai1').src = nmpng;
+
+function mulai() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+         	var nmvidio = document.getElementById("vctrl_iwr4_3");
+          setTimeout(function () {
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+}
+
+function berhenti() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+         	var nmvidio = document.getElementById("vctrl_iwr4_3");
+          setTimeout(function () {
+            nmaudio.pause();
+            nmvidio.pause();
+          }, 0 * 1000);
+}
+
+function mulaiberhenti() {
+          var nmaudio = document.getElementById("ctrl_iwr4_3");
+          var nmvidio = document.getElementById("vctrl_iwr4_3");
+          var stt = document.getElementById("mulaiberhenti").value;
+          setTimeout(function () {
+            if (stt=="mulai") {
+              nmaudio.pause();
+              nmvidio.pause();
+              document.getElementById("mulaiberhenti").value="berhenti";
+            } else {
+              nmaudio.play();
+              nmvidio.play();
+              document.getElementById("mulaiberhenti").value="mulai";
+            }
+          }, 0 * 1000);
+}
+
+function gambar()
+{
+  document.getElementById("filemapjs").src="mapngajix.js";
+
+  document.getElementById("noarea").value=1;
+  var nmlogs = document.getElementById("displog");
+  nmlogs.append('\n    <map name="map'+document.getElementById("iwrs").value+'">\n');
+
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  nmmap="#map"+document.getElementById("iwrs").value;
+  document.getElementById('ibingkai1').src = nmpng;
+
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr4_3").src=nmfile;
+  document.getElementById("src_iwr4_3").src=nmfile;
+
+  vnmfile="vidio/"+document.getElementById("iwrs").value+".mp4";
+  document.getElementById("vctrl_iwr4_3").src=vnmfile;
+  document.getElementById("vsrc_iwr4_3").src=vnmfile;
+  
+  document.getElementById('ibingkai1').useMap=nmmap;
+}
+function getMousePosition(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x1').value = x;
+      document.getElementById('y1').value = y;
+}
+function getMousePosition2(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x2').value = x;
+      document.getElementById('y2').value = y;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+      ambilposaud();
+}
+function x1kex2()
+{
+      document.getElementById('x2').value = document.getElementById('x1').value;
+      document.getElementById('y2').value = document.getElementById('y1').value;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+}      
+
+function startt() {
+         	var nmaudio = document.getElementById("ctrl_iwr4_3");
+           var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stopt(aud1,aud2);
+}
+function stopt(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+          nmlogs.res;
+}
+function start1(aud1,aud2,no) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stop1(aud1,aud2);
+}
+function stop1(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var nmvidio = document.getElementById("vctrl_iwr4_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+}
+function ambilposaud() {
+        	var nmaudio = document.getElementById("ctrl_iwr4_3");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var nmlogs = document.getElementById("displog");
+          document.getElementById("aud2").value=nmaudio.currentTime;
+}
+function aud2keaud1()
+{
+          if (document.getElementById('aud2').value!=0) {
+            document.getElementById('aud1').value = document.getElementById('aud2').value;
+            document.getElementById('aud2').value = 0;
+          }
+}
+function susun() {
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var noarea = document.getElementById("noarea").value;
+          document.getElementById("noarea").value=parseInt(noarea)+1;
+        	var x1 = document.getElementById("x1").value;
+        	var y1 = document.getElementById("y1").value;
+        	var x2 = document.getElementById("x2").value;
+        	var y2 = document.getElementById("y2").value;
+        	nmlogs.append('<area shape="rect" coords="'+x1+', '+y1+', '+x2+', '+y2+' " onclick="start1('+aud1+', '+ aud2+', '+noarea+');">\n');
+          document.getElementById('x2').value = 0
+          document.getElementById('y2').value = 0
+          document.getElementById('x1').value = 0;
+          document.getElementById('y1').value = 0;
+        	document.getElementById("aud1").value=document.getElementById("aud2").value;
+        	document.getElementById("aud2").value=0;
+
+
+          //nmlogs.append('\n    </map>\n');
+}
+
+  
+</script>

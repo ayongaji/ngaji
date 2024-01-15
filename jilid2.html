@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script id="filemapjs" src="mapngaji.js"></script>
+<style>
+  .bingkai1 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 1;
+      width:max-content;
+    }
+    /* Gambar kedua */
+    .bingkai2 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 2;
+      width: 100%;
+    }
+    .bingkai {
+      border: 1px;
+    }
+
+    .cvnbingkai {
+      background-color:antiquewhite;
+    }
+    .u640_390x {
+      width: 390px;
+      height: 640;
+    }
+    .u640_390 {
+      width: 400px;
+      height: 640;
+    }
+    .bening {
+      color: transparent;
+    }
+    
+    .hilang {
+      display: none;
+    }
+    .tampak {
+      display: block;
+    }
+</style>  <title>Ayo Ngaji</title>
+</head>
+<BODY style="font-size: 20px;">
+  <table width="100%" class="utkadm" border="0px">
+    <tr  class="hilang" align="center" style="font-size: 25px;"><td>Ayo Mengaji</td></tr>
+    <tr>
+      <div align="center">
+        <audio controls id="ctrl_iwr2_3" width="100px">
+          <source id="src_iwr2_3" type="audio/mpeg">
+        </audio><br>
+<div class="hilang">
+        nomor <input id="noarea" type="number" value="1" style="font-size: 25px;"><br>
+        mulai <input id="aud1" type="number" value="0" style="font-size: 25px;" onfocus="aud2keaud1();">
+        akhir <input id="aud2" type="number" value="0" style="font-size: 25px;" onfocus="ambilposaud();"><br>
+
+        x1 <input id="x1" type="number" value="0" style="font-size: 25px;">
+        y1 <input id="y1" type="number" value="0" style="font-size: 25px;"><br>
+
+        x2 <input id="x2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();">
+        y2 <input id="y2" type="number" value="0" style="font-size: 25px;" onclick="x1kex2();"><br>
+
+        <button onclick="startt()" style="font-size: 25px;">Tes Posisi</button>
+        <button id="mulaiberhenti" onclick="mulaiberhenti()" style="font-size: 25px;background-color: rgba(21, 166, 21, 0.564);" value="berhenti">Start/Stop</button>
+        <button onclick="susun()" style="font-size: 25px;background-color: rgb(243, 187, 67);">Buat Area</button><br>
+</div>
+        Pilih <select name="iwrs" id="iwrs" onchange="gambar()" style="font-size: 25px;background-color: rgba(168, 243, 242, 0.309);">
+          <option value="iwr2_1">iwr2_1</option>
+          <option value="iwr2_2">iwr2_2</option>
+          <option value="iwr2_3">iwr2_3</option>
+          <option value="iwr2_4">iwr2_4</option>
+          <option value="iwr2_5">iwr2_5</option>
+          <option value="iwr2_6">iwr2_6</option>
+          <option value="iwr2_7">iwr2_7</option>
+          <option value="iwr2_8">iwr2_8</option>
+          <option value="iwr2_9">iwr2_9</option>
+          <option value="iwr2_10">iwr2_10</option>
+          <option value="iwr2_11">iwr2_11</option>
+          <option value="iwr2_12">iwr2_12</option>
+          <option value="iwr2_13">iwr2_13</option>
+          <option value="iwr2_14">iwr2_14</option>
+          <option value="iwr2_15">iwr2_15</option>
+          <option value="iwr2_16">iwr2_16</option>
+          <option value="iwr2_17">iwr2_17</option>
+          <option value="iwr2_18">iwr2_18</option>
+          </select>
+          <a href="index.html" ><button  style="font-size: 25px;background-color: rgba(122, 122, 243, 0.496);">Halaman Utama</button></a><br>
+      </div>
+    </td></tr>
+    <tr align="center">
+      <td>
+        <div class="bingkai" style="vertical-align: top;">
+          <video controls id="vctrl_iwr2_3" width="640" height="360" class="hilang hilangx">
+            <source id="vsrc_iwr2_3" type="video/mp4">
+          </video><br>
+            <img id="ibingkai1" usemap="#mapiwr2_1" class="xbingkai1 u640_390" src="imgs/iwr2_2.png" onclick="getMousePosition(event)"  ondblclick="getMousePosition2(event)">
+          <img id="ibingkai2" class="xbingkai2 beningx hilangx hilang " src="imgs/iwr2_2.png" >
+
+          <map name="mapiwr2_1">
+            <area shape="rect" coords="4.1746826171875, 1.70635986328125, 390.1746826171875, 81.70635986328125 " onclick="start1(36.662851, 42.234616, 1);">
+            <area shape="rect" coords="8.1746826171875, 83.70635986328125, 389.1746826171875, 158.70635986328125 " onclick="start1(42.234616, 48.198162, 2);">
+            <area shape="rect" coords="7.1746826171875, 166.70635986328125, 389.1746826171875, 231.70635986328125 " onclick="start1(48.198162, 54.089139, 3);">
+            <area shape="rect" coords="1.1746826171875, 235.70635986328125, 385.1746826171875, 311.70635986328125 " onclick="start1(54.089139, 59.661349, 4);">
+            <area shape="rect" coords="9.1746826171875, 312.70635986328125, 388.1746826171875, 384.70635986328125 " onclick="start1(59.661349, 65.665819, 5);">
+            <area shape="rect" coords="12.1746826171875, 382.70635986328125, 386.1746826171875, 457.70635986328125 " onclick="start1(65.665819, 71.338155, 6);">
+            <area shape="rect" coords="7.1746826171875, 454.70635986328125, 386.1746826171875, 529.7063598632812 " onclick="start1(71.338155, 76.931461, 7);">
+            <area shape="rect" coords="8.1746826171875, 527.7063598632812, 393.1746826171875, 605.7063598632812 " onclick="start1(76.931461, 82.390338, 8);">
+          </map>
+          <map name="mapiwr2_2">
+              <area shape="rect" coords="8.1746826171875, 5.70635986328125, 391.1746826171875, 85.70635986328125 " onclick="start1(21.338754, 29.348317, 1);">
+              <area shape="rect" coords="1.1746826171875, 92.70635986328125, 391.1746826171875, 151.70635986328125 " onclick="start1(29.348317, 35.983135, 2);">
+              <area shape="rect" coords="7.1746826171875, 163.70635986328125, 381.1746826171875, 229.70635986328125 " onclick="start1(35.983135, 42.106134, 3);">
+              <area shape="rect" coords="9.1746826171875, 237.70635986328125, 386.1746826171875, 299.70635986328125 " onclick="start1(42.106134, 48.565742, 4);">
+              <area shape="rect" coords="10.1746826171875, 309.70635986328125, 386.1746826171875, 374.70635986328125 " onclick="start1(48.565742, 54.805344, 5);">
+              <area shape="rect" coords="8.1746826171875, 379.70635986328125, 385.1746826171875, 449.70635986328125 " onclick="start1(54.805344, 60.700218, 6);">
+              <area shape="rect" coords="14.1746826171875, 461.70635986328125, 382.1746826171875, 522.7063598632812 " onclick="start1(60.700218, 67.08553, 7);">
+              <area shape="rect" coords="3.1746826171875, 529.7063598632812, 376.1746826171875, 598.7063598632812 " onclick="start1(67.08553, 73.774778, 8);">
+            </map>
+            
+          <map name="mapiwr2_3">
+              <area shape="rect" coords="19.1746826171875, 20.70635986328125, 382.1746826171875, 89.70635986328125 " onclick="start1(18.856073, 31.964908, 1);">
+              <area shape="rect" coords="13.1746826171875, 96.70635986328125, 380.1746826171875, 161.70635986328125 " onclick="start1(31.964908, 38.764423, 2);">
+              <area shape="rect" coords="23.1746826171875, 167.70635986328125, 379.1746826171875, 231.70635986328125 " onclick="start1(38.764423, 45.50116, 3);">
+              <area shape="rect" coords="22.1746826171875, 236.70635986328125, 381.1746826171875, 297.70635986328125 " onclick="start1(45.50116, 51.880925, 4);">
+              <area shape="rect" coords="18.1746826171875, 306.70635986328125, 384.1746826171875, 369.70635986328125 " onclick="start1(51.880925, 58.500242, 5);">
+              <area shape="rect" coords="19.1746826171875, 374.70635986328125, 376.1746826171875, 443.70635986328125 " onclick="start1(58.500242, 65.101847, 6);">
+              <area shape="rect" coords="14.1746826171875, 444.70635986328125, 374.1746826171875, 511.70635986328125 " onclick="start1(65.101847, 71.268789, 7);">
+              <area shape="rect" coords="21.1746826171875, 518.7063598632812, 381.1746826171875, 585.7063598632812 " onclick="start1(71.268789, 77.775914, 8);">
+          </map>
+
+          <map name="mapiwr2_4">
+              <area shape="rect" coords="19.1746826171875, 18.388916015625, 377.1746826171875, 91.388916015625 " onclick="start1(24.534215, 30.333921, 1);">
+              <area shape="rect" coords="19.1746826171875, 98.388916015625, 371.1746826171875, 164.388916015625 " onclick="start1(30.333921, 38.572439, 2);">
+              <area shape="rect" coords="17.1746826171875, 169.388916015625, 372.1746826171875, 240.388916015625 " onclick="start1(38.572439, 45.81284, 3);">
+              <area shape="rect" coords="17.1746826171875, 241.388916015625, 374.1746826171875, 314.388916015625 " onclick="start1(45.81284, 53.471574, 4);">
+              <area shape="rect" coords="22.1746826171875, 309.388916015625, 377.1746826171875, 377.388916015625 " onclick="start1(53.471574, 60.80922, 5);">
+              <area shape="rect" coords="19.1746826171875, 383.388916015625, 372.1746826171875, 442.388916015625 " onclick="start1(60.80922, 68.137227, 6);">
+              <area shape="rect" coords="18.1746826171875, 455.388916015625, 371.1746826171875, 522.388916015625 " onclick="start1(68.137227, 75.115603, 7);">
+              <area shape="rect" coords="14.1746826171875, 523.388916015625, 370.1746826171875, 594.388916015625 " onclick="start1(75.115603, 81.841633, 8);">          </map>
+
+          <map name="mapiwr2_5">
+              <area shape="rect" coords="24.1746826171875, 24.70635986328125, 377.1746826171875, 89.70635986328125 " onclick="start1(19.640925, 26.015411, 1);">
+              <area shape="rect" coords="22.1746826171875, 97.70635986328125, 372.1746826171875, 157.70635986328125 " onclick="start1(26.015411, 31.624902, 2);">
+              <area shape="rect" coords="24.1746826171875, 167.70635986328125, 377.1746826171875, 232.70635986328125 " onclick="start1(31.624902, 36.548308, 3);">
+              <area shape="rect" coords="27.1746826171875, 241.70635986328125, 381.1746826171875, 303.70635986328125 " onclick="start1(36.548308, 41.426369, 4);">
+              <area shape="rect" coords="28.1746826171875, 320.70635986328125, 375.1746826171875, 376.70635986328125 " onclick="start1(41.426369, 46.513904, 5);">
+              <area shape="rect" coords="23.1746826171875, 376.70635986328125, 376.1746826171875, 449.70635986328125 " onclick="start1(46.513904, 53.476782, 6);">
+              <area shape="rect" coords="28.1746826171875, 450.70635986328125, 375.1746826171875, 520.7063598632812 " onclick="start1(53.476782, 60.012296, 7);">
+              <area shape="rect" coords="18.1746826171875, 528.7063598632812, 368.1746826171875, 584.7063598632812 " onclick="start1(60.012296, 66.403265, 8);">
+          </map>
+
+          <map name="mapiwr2_6">
+              <area shape="rect" coords="15.1746826171875, 7.70635986328125, 385.1746826171875, 86.70635986328125 " onclick="start1(19.82446, 27.354964, 1);">
+              <area shape="rect" coords="10.1746826171875, 85.70635986328125, 379.1746826171875, 152.70635986328125 " onclick="start1(27.354964, 33.436124, 2);">
+              <area shape="rect" coords="17.1746826171875, 162.70635986328125, 374.1746826171875, 227.70635986328125 " onclick="start1(33.436124, 40.033559, 3);">
+              <area shape="rect" coords="19.1746826171875, 237.70635986328125, 380.1746826171875, 306.70635986328125 " onclick="start1(40.033559, 46.24283, 4);">
+              <area shape="rect" coords="14.1746826171875, 307.70635986328125, 380.1746826171875, 374.70635986328125 " onclick="start1(46.24283, 52.45023, 5);">
+              <area shape="rect" coords="19.1746826171875, 386.70635986328125, 380.1746826171875, 450.70635986328125 " onclick="start1(52.45023, 58.598443, 6);">
+              <area shape="rect" coords="7.1746826171875, 454.70635986328125, 375.1746826171875, 524.7063598632812 " onclick="start1(58.598443, 65.417967, 7);">
+              <area shape="rect" coords="17.1746826171875, 530.7063598632812, 380.1746826171875, 599.7063598632812 " onclick="start1(65.417967, 71.549388, 8);">
+            </map>
+
+          <map name="mapiwr2_7">
+              <area shape="rect" coords="8.1746826171875, 5.70635986328125, 384.1746826171875, 78.70635986328125 " onclick="start1(19.480915, 23.268568, 1);">
+              <area shape="rect" coords="3.1746826171875, 80.70635986328125, 379.1746826171875, 156.70635986328125 " onclick="start1(23.268568, 30.509456, 2);">
+              <area shape="rect" coords="8.1746826171875, 162.70635986328125, 382.1746826171875, 226.70635986328125 " onclick="start1(30.509456, 37.88574, 3);">
+              <area shape="rect" coords="7.1746826171875, 237.70635986328125, 380.1746826171875, 306.70635986328125 " onclick="start1(37.88574, 45.366488, 4);">
+              <area shape="rect" coords="10.1746826171875, 311.70635986328125, 379.1746826171875, 381.70635986328125 " onclick="start1(45.366488, 52.384755, 5);">
+              <area shape="rect" coords="7.1746826171875, 387.70635986328125, 376.1746826171875, 450.70635986328125 " onclick="start1(52.384755, 59.6179, 6);">
+              <area shape="rect" coords="10.1746826171875, 458.70635986328125, 382.1746826171875, 529.7063598632812 " onclick="start1(59.6179, 66.559091, 7);">
+              <area shape="rect" coords="8.1746826171875, 530.7063598632812, 376.1746826171875, 599.7063598632812 " onclick="start1(66.559091, 72.85551, 8);">
+            </map>
+
+          <map name="mapiwr2_8">
+              <area shape="rect" coords="22.1746826171875, 15.70635986328125, 377.1746826171875, 89.70635986328125 " onclick="start1(19.411489, 26.932703, 1);">
+              <area shape="rect" coords="13.1746826171875, 89.70635986328125, 367.1746826171875, 157.70635986328125 " onclick="start1(26.932703, 34.114104, 2);">
+              <area shape="rect" coords="12.1746826171875, 160.70635986328125, 375.1746826171875, 228.70635986328125 " onclick="start1(34.114104, 40.999893, 3);">
+              <area shape="rect" coords="10.1746826171875, 231.70635986328125, 372.1746826171875, 301.70635986328125 " onclick="start1(40.999893, 49.85611, 4);">
+              <area shape="rect" coords="14.1746826171875, 312.70635986328125, 376.1746826171875, 369.70635986328125 " onclick="start1(49.85611, 58.98935, 5);">
+              <area shape="rect" coords="13.1746826171875, 379.70635986328125, 374.1746826171875, 445.70635986328125 " onclick="start1(58.98935, 67.731849, 6);">
+              <area shape="rect" coords="14.1746826171875, 449.70635986328125, 375.1746826171875, 516.7063598632812 " onclick="start1(67.731849, 76.709101, 7);">
+              <area shape="rect" coords="13.1746826171875, 524.7063598632812, 367.1746826171875, 588.7063598632812 " onclick="start1(76.709101, 85.113719, 8);">
+          </map>
+
+          <map name="mapiwr2_9">
+            <area shape="rect" coords="17.1746826171875, 19.70635986328125, 372.1746826171875, 78.70635986328125 " onclick="start1(22.004525, 26.859035, 1);">
+            <area shape="rect" coords="12.1746826171875, 89.70635986328125, 379.1746826171875, 156.70635986328125 " onclick="start1(26.859035, 35.312897, 2);">
+            <area shape="rect" coords="9.1746826171875, 170.70635986328125, 382.1746826171875, 233.70635986328125 " onclick="start1(35.312897, 43.463258, 3);">
+            <area shape="rect" coords="13.1746826171875, 240.70635986328125, 382.1746826171875, 303.70635986328125 " onclick="start1(43.463258, 51.250216, 4);">
+            <area shape="rect" coords="18.1746826171875, 316.70635986328125, 381.1746826171875, 383.70635986328125 " onclick="start1(51.250216, 58.982011, 5);">
+            <area shape="rect" coords="9.1746826171875, 386.70635986328125, 375.1746826171875, 454.70635986328125 " onclick="start1(58.982011, 67.035796, 6);">
+            <area shape="rect" coords="13.1746826171875, 458.70635986328125, 377.1746826171875, 525.7063598632812 " onclick="start1(67.035796, 74.716867, 7);">
+            <area shape="rect" coords="17.1746826171875, 530.7063598632812, 382.1746826171875, 602.7063598632812 " onclick="start1(74.716867, 82.677551, 8);">
+          </map>
+
+          <map name="mapiwr2_10">
+            <area shape="rect" coords="10.1746826171875, 2.388916015625, 393.1746826171875, 79.388916015625 " onclick="start1(21.311753, 30.618406, 1);">
+            <area shape="rect" coords="4.1746826171875, 85.388916015625, 390.1746826171875, 151.388916015625 " onclick="start1(30.618406, 38.160136, 2);">
+            <area shape="rect" coords="14.1746826171875, 159.388916015625, 389.1746826171875, 229.388916015625 " onclick="start1(38.160136, 45.966614, 3);">
+            <area shape="rect" coords="4.1746826171875, 240.388916015625, 386.1746826171875, 307.388916015625 " onclick="start1(45.966614, 53.577289, 4);">
+            <area shape="rect" coords="10.1746826171875, 314.388916015625, 389.1746826171875, 378.388916015625 " onclick="start1(53.577289, 60.871105, 5);">
+            <area shape="rect" coords="7.1746826171875, 390.388916015625, 388.1746826171875, 448.388916015625 " onclick="start1(60.871105, 68.103643, 6);">
+            <area shape="rect" coords="5.1746826171875, 469.388916015625, 393.1746826171875, 528.388916015625 " onclick="start1(68.103643, 75.005235, 7);">
+            <area shape="rect" coords="10.1746826171875, 538.388916015625, 391.1746826171875, 601.388916015625 " onclick="start1(75.005235, 83.722449, 8);">
+          </map>
+
+          <map name="mapiwr2_11">
+            <area shape="rect" coords="9.1746826171875, 10.70635986328125, 390.1746826171875, 76.70635986328125 " onclick="start1(21.141537, 30.223965, 1);">
+            <area shape="rect" coords="12.1746826171875, 86.70635986328125, 384.1746826171875, 155.70635986328125 " onclick="start1(30.223965, 38.873392, 2);">
+            <area shape="rect" coords="15.1746826171875, 161.70635986328125, 388.1746826171875, 229.70635986328125 " onclick="start1(38.873392, 47.52365, 3);">
+            <area shape="rect" coords="12.1746826171875, 237.70635986328125, 382.1746826171875, 307.70635986328125 " onclick="start1(47.52365, 55.275541, 4);">
+            <area shape="rect" coords="13.1746826171875, 311.70635986328125, 388.1746826171875, 382.70635986328125 " onclick="start1(55.275541, 63.682036, 5);">
+            <area shape="rect" coords="12.1746826171875, 386.70635986328125, 385.1746826171875, 454.70635986328125 " onclick="start1(63.682036, 71.825864, 6);">
+            <area shape="rect" coords="14.1746826171875, 462.70635986328125, 391.1746826171875, 530.7063598632812 " onclick="start1(71.825864, 79.912281, 7);">
+            <area shape="rect" coords="12.1746826171875, 538.7063598632812, 389.1746826171875, 607.7063598632812 " onclick="start1(79.912281, 87.745306, 8);">
+          </map>
+            
+          <map name="mapiwr2_12">
+            <area shape="rect" coords="10.1746826171875, 10.70635986328125, 389.1746826171875, 76.70635986328125 " onclick="start1(20.095645, 28.0503, 1);">
+            <area shape="rect" coords="9.1746826171875, 91.70635986328125, 381.1746826171875, 163.70635986328125 " onclick="start1(28.0503, 37.20873, 2);">
+            <area shape="rect" coords="3.1746826171875, 172.70635986328125, 388.1746826171875, 240.70635986328125 " onclick="start1(37.20873, 45.092162, 3);">
+            <area shape="rect" coords="3.1746826171875, 250.70635986328125, 385.1746826171875, 323.70635986328125 " onclick="start1(45.092162, 54.250767, 4);">
+            <area shape="rect" coords="5.1746826171875, 332.70635986328125, 394.1746826171875, 401.70635986328125 " onclick="start1(54.250767, 63.634742, 5);">
+            <area shape="rect" coords="7.1746826171875, 407.70635986328125, 389.1746826171875, 477.70635986328125 " onclick="start1(63.634742, 73.191896, 6);">
+            <area shape="rect" coords="8.1746826171875, 489.70635986328125, 390.1746826171875, 560.7063598632812 " onclick="start1(73.191896, 81.766509, 7);">
+            <area shape="rect" coords="7.1746826171875, 567.7063598632812, 390.1746826171875, 631.7063598632812 " onclick="start1(81.766509, 90.67102, 8);">
+          </map>
+            
+          <map name="mapiwr2_13">
+            <area shape="rect" coords="12.1746826171875, 5.70635986328125, 393.1746826171875, 75.70635986328125 " onclick="start1(20.984313, 28.480947, 1);">
+            <area shape="rect" coords="250.1746826171875, 90.70635986328125, 391.1746826171875, 158.70635986328125 " onclick="start1(28.480947, 31.218547, 2);">
+            <area shape="rect" coords="18.1746826171875, 95.70635986328125, 240.1746826171875, 156.70635986328125 " onclick="start1(31.218547, 37.080837, 3);">
+            <area shape="rect" coords="264.1746826171875, 169.70635986328125, 388.1746826171875, 233.70635986328125 " onclick="start1(37.080837, 39.484309, 4);">
+            <area shape="rect" coords="19.1746826171875, 172.70635986328125, 253.1746826171875, 229.70635986328125 " onclick="start1(39.484309, 44.303395, 5);">
+            <area shape="rect" coords="271.1746826171875, 251.70635986328125, 382.1746826171875, 312.70635986328125 " onclick="start1(44.303395, 47.194947, 6);">
+            <area shape="rect" coords="21.1746826171875, 247.70635986328125, 259.1746826171875, 304.70635986328125 " onclick="start1(47.194947, 52.54263, 7);">
+            <area shape="rect" coords="14.1746826171875, 322.70635986328125, 379.1746826171875, 381.70635986328125 " onclick="start1(52.54263, 58.017594, 8);">
+            <area shape="rect" coords="19.1746826171875, 400.70635986328125, 381.1746826171875, 458.70635986328125 " onclick="start1(58.017594, 63.312894, 9);">
+            <area shape="rect" coords="13.1746826171875, 478.70635986328125, 384.1746826171875, 539.7063598632812 " onclick="start1(63.312894, 68.494641, 10);">
+            <area shape="rect" coords="15.1746826171875, 551.7063598632812, 384.1746826171875, 616.7063598632812 " onclick="start1(68.494641, 73.341965, 11);">
+          </map>
+
+          <map name="mapiwr2_14">
+            <area shape="rect" coords="201.1746826171875, 15.70635986328125, 385.1746826171875, 81.70635986328125 " onclick="start1(20.535268, 26.750224, 1);">
+            <area shape="rect" coords="17.1746826171875, 20.70635986328125, 189.1746826171875, 75.70635986328125 " onclick="start1(26.750224, 31.997896, 2);">
+            <area shape="rect" coords="203.1746826171875, 96.70635986328125, 385.1746826171875, 149.70635986328125 " onclick="start1(31.997896, 37.791479, 3);">
+            <area shape="rect" coords="9.1746826171875, 90.70635986328125, 194.1746826171875, 146.70635986328125 " onclick="start1(37.791479, 43.216086, 4);">
+            <area shape="rect" coords="203.1746826171875, 166.70635986328125, 388.1746826171875, 229.70635986328125 " onclick="start1(43.216086, 48.410774, 5);">
+            <area shape="rect" coords="12.1746826171875, 170.70635986328125, 191.1746826171875, 223.70635986328125 " onclick="start1(48.410774, 53.632739, 6);">
+            <area shape="rect" coords="206.1746826171875, 250.70635986328125, 390.1746826171875, 309.70635986328125 " onclick="start1(53.632739, 59.564296, 7);">
+            <area shape="rect" coords="18.1746826171875, 247.70635986328125, 186.1746826171875, 304.70635986328125 " onclick="start1(59.564296, 63.764515, 8);">
+            <area shape="rect" coords="216.1746826171875, 321.70635986328125, 386.1746826171875, 382.70635986328125 " onclick="start1(63.764515, 69.356442, 9);">
+            <area shape="rect" coords="19.1746826171875, 317.70635986328125, 196.1746826171875, 382.70635986328125 " onclick="start1(69.356442, 75.21998, 10);">
+            <area shape="rect" coords="206.1746826171875, 395.70635986328125, 382.1746826171875, 454.70635986328125 " onclick="start1(75.21998, 80.424878, 11);">
+            <area shape="rect" coords="18.1746826171875, 395.70635986328125, 188.1746826171875, 453.70635986328125 " onclick="start1(80.424878, 84.579925, 12);">
+            <area shape="rect" coords="217.1746826171875, 471.70635986328125, 385.1746826171875, 530.7063598632812 " onclick="start1(84.579925, 89.99159, 13);">
+            <area shape="rect" coords="17.1746826171875, 477.70635986328125, 191.1746826171875, 530.7063598632812 " onclick="start1(89.99159, 95.024789, 14);">
+            <area shape="rect" coords="206.1746826171875, 546.7063598632812, 381.1746826171875, 607.7063598632812 " onclick="start1(95.024789, 99.860138, 15);">
+            <area shape="rect" coords="14.1746826171875, 541.7063598632812, 188.1746826171875, 603.7063598632812 " onclick="start1(99.860138, 104.591003, 16);">
+          </map>
+
+          <map name="mapiwr2_15">
+            <area shape="rect" coords="15.1746826171875, 10.70635986328125, 391.1746826171875, 77.70635986328125 " onclick="start1(17.58, 35.058459, 1);">
+            <area shape="rect" coords="15.1746826171875, 94.70635986328125, 386.1746826171875, 155.70635986328125 " onclick="start1(35.058459, 46.282727, 2);">
+            <area shape="rect" coords="10.1746826171875, 172.70635986328125, 382.1746826171875, 235.70635986328125 " onclick="start1(46.282727, 56.643125, 3);">
+            <area shape="rect" coords="10.1746826171875, 252.70635986328125, 389.1746826171875, 308.70635986328125 " onclick="start1(56.643125, 66.816173, 4);">
+            <area shape="rect" coords="9.1746826171875, 330.70635986328125, 384.1746826171875, 386.70635986328125 " onclick="start1(66.816173, 76.872889, 5);">
+            <area shape="rect" coords="13.1746826171875, 403.70635986328125, 390.1746826171875, 469.70635986328125 " onclick="start1(76.872889, 87.856427, 6);">
+            <area shape="rect" coords="8.1746826171875, 486.70635986328125, 386.1746826171875, 548.7063598632812 " onclick="start1(87.856427, 97.114879, 7);">
+            <area shape="rect" coords="7.1746826171875, 558.7063598632812, 393.1746826171875, 629.7063598632812 " onclick="start1(97.114879, 106.710204, 8);">
+          </map>
+
+          <map name="mapiwr2_16">
+            <area shape="rect" coords="15.1746826171875, 12.70635986328125, 393.1746826171875, 85.70635986328125 " onclick="start1(18.485101, 28.198231, 1);">
+            <area shape="rect" coords="14.1746826171875, 92.70635986328125, 385.1746826171875, 153.70635986328125 " onclick="start1(28.198231, 37.263121, 2);">
+            <area shape="rect" coords="7.1746826171875, 171.70635986328125, 384.1746826171875, 241.70635986328125 " onclick="start1(37.263121, 46.460569, 3);">
+            <area shape="rect" coords="10.1746826171875, 254.70635986328125, 385.1746826171875, 316.70635986328125 " onclick="start1(46.460569, 56.105687, 4);">
+            <area shape="rect" coords="14.1746826171875, 329.70635986328125, 384.1746826171875, 395.70635986328125 " onclick="start1(56.105687, 65.173213, 5);">
+            <area shape="rect" coords="12.1746826171875, 405.70635986328125, 388.1746826171875, 467.70635986328125 " onclick="start1(65.173213, 75.729074, 6);">
+            <area shape="rect" coords="14.1746826171875, 487.70635986328125, 381.1746826171875, 544.7063598632812 " onclick="start1(75.729074, 86.701428, 7);">
+            <area shape="rect" coords="10.1746826171875, 565.7063598632812, 385.1746826171875, 624.7063598632812 " onclick="start1(86.701428, 97.530528, 8);">
+          </map>
+
+          <map name="mapiwr2_17">
+            <area shape="rect" coords="8.1746826171875, 14.70635986328125, 388.1746826171875, 80.70635986328125 " onclick="start1(18.723031, 27.090559, 1);">
+            <area shape="rect" coords="14.1746826171875, 94.70635986328125, 391.1746826171875, 155.70635986328125 " onclick="start1(27.090559, 35.265829, 2);">
+            <area shape="rect" coords="12.1746826171875, 176.70635986328125, 390.1746826171875, 237.70635986328125 " onclick="start1(35.265829, 43.513511, 3);">
+            <area shape="rect" coords="14.1746826171875, 254.70635986328125, 388.1746826171875, 313.70635986328125 " onclick="start1(43.513511, 52.005896, 4);">
+            <area shape="rect" coords="13.1746826171875, 329.70635986328125, 384.1746826171875, 392.70635986328125 " onclick="start1(52.005896, 61.608617, 5);">
+            <area shape="rect" coords="18.1746826171875, 412.70635986328125, 389.1746826171875, 466.70635986328125 " onclick="start1(61.608617, 71.466414, 6);">
+            <area shape="rect" coords="13.1746826171875, 486.70635986328125, 382.1746826171875, 546.7063598632812 " onclick="start1(71.466414, 80.760019, 7);">
+            <area shape="rect" coords="8.1746826171875, 560.7063598632812, 382.1746826171875, 627.7063598632812 " onclick="start1(80.760019, 89.878342, 8);">
+          </map>
+
+          <map name="mapiwr2_18">
+            <area shape="rect" coords="12.1746826171875, 12.70635986328125, 391.1746826171875, 85.70635986328125 " onclick="start1(18.160166, 23.900502, 1);">
+            <area shape="rect" coords="8.1746826171875, 94.70635986328125, 385.1746826171875, 167.70635986328125 " onclick="start1(23.900502, 30.800119, 2);">
+            <area shape="rect" coords="12.1746826171875, 171.70635986328125, 386.1746826171875, 238.70635986328125 " onclick="start1(30.800119, 37.578726, 3);">
+            <area shape="rect" coords="10.1746826171875, 249.70635986328125, 384.1746826171875, 318.70635986328125 " onclick="start1(37.578726, 44.468604, 4);">
+            <area shape="rect" coords="10.1746826171875, 326.70635986328125, 389.1746826171875, 393.70635986328125 " onclick="start1(44.468604, 51.600845, 5);">
+            <area shape="rect" coords="15.1746826171875, 407.70635986328125, 385.1746826171875, 467.70635986328125 " onclick="start1(51.600845, 59.275588, 6);">
+            <area shape="rect" coords="12.1746826171875, 483.70635986328125, 386.1746826171875, 547.7063598632812 " onclick="start1(59.275588, 65.851775, 7);">
+            <area shape="rect" coords="14.1746826171875, 557.7063598632812, 394.1746826171875, 626.7063598632812 " onclick="start1(65.851775, 73.100233, 8);">
+          </map>
+
+        <canvas id="canvas" class="cvnbingkai hilang hilangx" width="100px" height="100px"></canvas>
+        </div>
+
+      <div>
+        <textarea id="displog" class="hilang" rows="30" cols="200">
+        </textarea>
+      </div>
+
+        <div>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script lang="javascript">
+//  document.getElementById("filemapjs").src="mapngaji.js";
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr2_3").src=nmfile;
+  document.getElementById("src_iwr2_3").src=nmfile;
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  document.getElementById('ibingkai1').src = nmpng;
+
+function mulai() {
+         	var nmaudio = document.getElementById("ctrl_iwr2_3");
+         	var nmvidio = document.getElementById("vctrl_iwr2_3");
+          setTimeout(function () {
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+}
+
+function berhenti() {
+         	var nmaudio = document.getElementById("ctrl_iwr2_3");
+         	var nmvidio = document.getElementById("vctrl_iwr2_3");
+          setTimeout(function () {
+            nmaudio.pause();
+            nmvidio.pause();
+          }, 0 * 1000);
+}
+
+function mulaiberhenti() {
+          var nmaudio = document.getElementById("ctrl_iwr2_3");
+          var nmvidio = document.getElementById("vctrl_iwr2_3");
+          var stt = document.getElementById("mulaiberhenti").value;
+          setTimeout(function () {
+            if (stt=="mulai") {
+              nmaudio.pause();
+              nmvidio.pause();
+              document.getElementById("mulaiberhenti").value="berhenti";
+            } else {
+              nmaudio.play();
+              nmvidio.play();
+              document.getElementById("mulaiberhenti").value="mulai";
+            }
+          }, 0 * 1000);
+}
+
+function gambar()
+{
+  document.getElementById("filemapjs").src="mapngajix.js";
+
+  document.getElementById("noarea").value=1;
+  var nmlogs = document.getElementById("displog");
+  nmlogs.append('\n    <map name="map'+document.getElementById("iwrs").value+'">\n');
+
+  nmpng="imgs/"+document.getElementById("iwrs").value+".png";
+  nmmap="#map"+document.getElementById("iwrs").value;
+  document.getElementById('ibingkai1').src = nmpng;
+
+  nmfile="mp3/"+document.getElementById("iwrs").value+".mp3";
+  document.getElementById("ctrl_iwr2_3").src=nmfile;
+  document.getElementById("src_iwr2_3").src=nmfile;
+
+  vnmfile="vidio/"+document.getElementById("iwrs").value+".mp4";
+  document.getElementById("vctrl_iwr2_3").src=vnmfile;
+  document.getElementById("vsrc_iwr2_3").src=vnmfile;
+  
+  document.getElementById('ibingkai1').useMap=nmmap;
+}
+function getMousePosition(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x1').value = x;
+      document.getElementById('y1').value = y;
+}
+function getMousePosition2(event) {
+      var rect = event.target.getBoundingClientRect(); // Mendapatkan posisi relatif gambar
+      var x = event.clientX - rect.left; // Koordinat X mouse
+      var y = event.clientY - rect.top; // Koordinat Y mouse
+      
+      document.getElementById('x2').value = x;
+      document.getElementById('y2').value = y;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+      ambilposaud();
+}
+function x1kex2()
+{
+      document.getElementById('x2').value = document.getElementById('x1').value;
+      document.getElementById('y2').value = document.getElementById('y1').value;
+      document.getElementById('x1').value = 0;
+      document.getElementById('y1').value = 0;
+}      
+
+function startt() {
+         	var nmaudio = document.getElementById("ctrl_iwr2_3");
+           var nmvidio = document.getElementById("vctrl_iwr2_3");
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stopt(aud1,aud2);
+}
+function stopt(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr2_3");
+        	var nmvidio = document.getElementById("vctrl_iwr2_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+          nmlogs.res;
+}
+function start1(aud1,aud2,no) {
+        	var nmaudio = document.getElementById("ctrl_iwr2_3");
+        	var nmvidio = document.getElementById("vctrl_iwr2_3");
+        	var nmlogs = document.getElementById("displog");
+          nmaudio.currentTime = aud1;
+          nmvidio.currentTime = aud1;
+          setTimeout(function () {
+            //nmlogs.append("start1("+nmaudio.currentTime+", ");
+            nmaudio.play();
+            nmvidio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stop1(aud1,aud2);
+}
+function stop1(aud1,aud2) {
+        	var nmaudio = document.getElementById("ctrl_iwr2_3");
+        	var nmvidio = document.getElementById("vctrl_iwr2_3");
+        	var nmlogs = document.getElementById("displog");
+          setTimeout(function () {
+            //nmlogs.append(nmaudio.currentTime+");\n");
+            nmaudio.pause();
+            nmvidio.pause();
+          }, (aud2-aud1) * 1000);
+}
+function ambilposaud() {
+        	var nmaudio = document.getElementById("ctrl_iwr2_3");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var nmlogs = document.getElementById("displog");
+          document.getElementById("aud2").value=nmaudio.currentTime;
+}
+function aud2keaud1()
+{
+          if (document.getElementById('aud2').value!=0) {
+            document.getElementById('aud1').value = document.getElementById('aud2').value;
+            document.getElementById('aud2').value = 0;
+          }
+}
+function susun() {
+        	var nmlogs = document.getElementById("displog");
+        	var aud1 = document.getElementById("aud1").value;
+        	var aud2 = document.getElementById("aud2").value;
+        	var noarea = document.getElementById("noarea").value;
+          document.getElementById("noarea").value=parseInt(noarea)+1;
+        	var x1 = document.getElementById("x1").value;
+        	var y1 = document.getElementById("y1").value;
+        	var x2 = document.getElementById("x2").value;
+        	var y2 = document.getElementById("y2").value;
+        	nmlogs.append('<area shape="rect" coords="'+x1+', '+y1+', '+x2+', '+y2+' " onclick="start1('+aud1+', '+ aud2+', '+noarea+');">\n');
+          document.getElementById('x2').value = 0
+          document.getElementById('y2').value = 0
+          document.getElementById('x1').value = 0;
+          document.getElementById('y1').value = 0;
+        	document.getElementById("aud1").value=document.getElementById("aud2").value;
+        	document.getElementById("aud2").value=0;
+
+
+          //nmlogs.append('\n    </map>\n');
+}
+
+  
+</script>

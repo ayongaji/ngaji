@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+
+<style>
+  .bingkai1 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 1;
+      width:max-content;
+    }
+
+    /* Gambar kedua */
+    .bingkai2 {
+      position: absolute;
+      margin-top: 0;
+      margin-left: 0;
+      z-index: 2;
+      width: 100%;
+    }
+    .bingkai {
+      border: 1px;
+    }
+    .cvnbingkai {
+      background-color:antiquewhite;
+    }
+    .u640_390x {
+      width: 390px;
+      height: 640;
+    }
+    .u640_390 {
+      width: 400px;
+      height: 640;
+    }
+    .bening {
+      color: transparent;
+    }
+    .hilang {
+      display: none;
+    }
+    .tampak {
+      display: block;
+    }
+</style>  <title>Ayo Ngaji</title>
+</head>
+<BODY style="font-size: 20px;">
+  <table width="100%" class="utkadm" border="0px">
+<tr align="center">
+  <td>
+    <audio>
+      <source src="mp3/awal.mp3" type="audio/mpeg">
+      Maaf, browser Anda tidak mendukung pemutaran audio.
+    </audio>
+    <audio id="ctrl_iwr3_3" width="100px">
+      <source id="src_iwr3_3" type="audio/mpeg">
+    </audio>
+<img src="imgs/ngaji.png" usemap="#pilihan"  style="max-width: 100%; height: auto;">
+    <map name="pilihan">
+      <area shape="rect" coords="1.1746826171875, 5.70635986328125, 71.1746826171875, 97.70635986328125 " onclick="start12(0, 55, 1);">
+      <area shape="rect" coords="296.1746826171875, 9.70635986328125, 390.1746826171875, 91.70635986328125 " onclick="start1(0, 55, 1);">
+      <area shape="rect" coords="78.1746826171875, 7.70635986328125, 292.1746826171875, 48.70635986328125 " onclick="start1(0, 0, 3);">
+      <area shape="rect" coords="81.1746826171875, 56.70635986328125, 291.1746826171875, 97.70635986328125 " onclick="kitab();">
+      <area shape="rect" coords="4.1746826171875, 102.70635986328125, 395.1746826171875, 139.70635986328125 " onclick="jilid1();">
+      <area shape="rect" coords="4.1746826171875, 141.70635986328125, 395.1746826171875, 177.70635986328125 " onclick="jilid2();">
+      <area shape="rect" coords="3.1746826171875, 177.70635986328125, 394.1746826171875, 224.70635986328125 " onclick="jilid3();">
+      <area shape="rect" coords="3.1746826171875, 226.70635986328125, 394.1746826171875, 282.70635986328125 " onclick="jilid4();">
+      <area shape="rect" coords="9.1746826171875, 288.70635986328125, 70.1746826171875, 329.70635986328125 " onclick="ucapanhuruf()">
+      <area shape="rect" coords="357.1746826171875, 284.70635986328125, 393.1746826171875, 323.70635986328125 " onclick="doadoa();">
+      <area shape="rect" coords="64.1746826171875, 514.7063598632812, 334.1746826171875, 616.7063598632812 " onclick="start1(0, 0, 11);">
+    </map>
+  </td>
+</tr>
+  </table>
+</body>
+</html>
+<script>
+          nmfile="mp3/awal.mp3";
+          document.getElementById("ctrl_iwr3_3").src=nmfile;
+          document.getElementById("src_iwr3_3").src=nmfile;
+        	var nmaudio = document.getElementById("ctrl_iwr3_3");
+          //nmaudio.play();
+  // Fungsi untuk mengarahkan ke tautan
+  function jilid1() {
+    window.location.href = 'jilid1.html'; 
+  }
+  function jilid2() {
+    window.location.href = 'jilid2.html'; 
+  }
+  function jilid3() {
+    window.location.href = 'jilid3.html'; 
+  }
+  function jilid4() {
+    window.location.href = 'jilid4.html'; 
+  }
+  function ucapanhuruf() {
+    window.location.href = 'ucapanhuruf.html'; 
+  }
+  function doadoa() {
+    window.location.href = 'doadoa.html'; 
+  }
+  function kitab() {
+    window.location.href = 'kitab/index.html'; 
+  }
+  function start1(aud1,aud2,no) {
+          nmfile="mp3/doa_akhir.mp3";
+          document.getElementById("ctrl_iwr3_3").src=nmfile;
+          document.getElementById("src_iwr3_3").src=nmfile;
+        	var nmaudio = document.getElementById("ctrl_iwr3_3");
+
+          nmaudio.currentTime = aud1;
+          setTimeout(function () {
+            nmaudio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stop1(aud1,aud2);
+  }
+  function stop1(aud1,aud2) {
+          var nmaudio = "mp3/doa_akhir.mp3";
+          setTimeout(function () {
+            nmaudio.pause();
+          }, (aud2-aud1) * 1000);
+  }
+
+  function start12(aud1,aud2,no) {
+          nmfile="mp3/doa_awal.mp3";
+          document.getElementById("ctrl_iwr3_3").src=nmfile;
+          document.getElementById("src_iwr3_3").src=nmfile;
+        	var nmaudio = document.getElementById("ctrl_iwr3_3");
+
+          nmaudio.currentTime = aud1;
+          setTimeout(function () {
+            nmaudio.play();
+          }, 0 * 1000);
+          setTimeout(function () { }, 2 * 1000);
+          stop12(aud1,aud2);
+  }
+  function stop12(aud1,aud2) {
+          var nmaudio = "mp3/doa_awal.mp3";
+          setTimeout(function () {
+            nmaudio.pause();
+          }, (aud2-aud1) * 1000);
+  }
+
+</script>
+
