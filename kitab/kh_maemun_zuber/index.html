@@ -52,7 +52,7 @@
     <tr  class="hilang" align="center" style="font-size: 25px;"><td>Ayo Mengaji</td></tr>
     <tr>
       <div align="center">
-        <audio id="ctrl_iwr4_3" width="100px">
+        <audio controls id="ctrl_iwr4_3" width="100px">
           <source id="src_iwr4_3" type="audio/mpeg">
         </audio><br>
 <div class="hilang">
@@ -70,8 +70,21 @@
         <button id="mulaiberhenti" onclick="mulaiberhenti()" style="font-size: 25px;background-color: rgba(21, 166, 21, 0.564);" value="berhenti">Start/Stop</button>
         <button onclick="susun()" style="font-size: 25px;background-color: rgb(243, 187, 67);">Buat Area</button><br>
 </div>
-         <select class="hilang" name="iwrs" id="iwrs" onchange="gambar()" style="font-size: 25px;background-color: rgba(168, 243, 242, 0.309);">
-          <option value="utama">Kyai | Masjid | Buku</option>
+         <select class="ada" name="iwrs" id="iwrs" onchange="gambar()" style="font-size: 25px;background-color: rgba(168, 243, 242, 0.309);">
+          <option value="pilih">KH MAIMUN ZUBAIR</option>
+          <option value="KITAB-AL-ULAMA-AL-MUJADDIDUN">KITAB AL ULAMA AL MUJADDIDUN</option>
+          <option value="KITAB-JALALAIN">Tafsir Surat</option>
+          <option value="Haflah Madrasah">Haflah Madrasah</option>
+          <option value="Perintah Sujud">Perintah Sujud</option>
+          <option value="mmz_ksk">Kisah Sayyida Khadijah</option>
+          <option value="Ilmu-Sayyidah-Khodijah-dan-Gurunya">Ilmu Sayyidah Khodijah dan Gurunya</option>
+          <option value="KH MAIMUN ZUBAIR 2008a">Islam Jaman Nabi (2008)</option>
+          <option value="KH MAIMUN ZUBAIR 2017a">KH MAIMUN ZUBAIR 2017</option>
+          <option value="KH MAIMUN ZUBAIR Dampak Indonesiaa">KH MAIMUN ZUBAIR Dampak Indonesia</option>
+          <option value="KH MAIMUN ZUBAIR Lahirnya Nabi Muhammada">KH MAIMUN ZUBAIR Lahirnya Nabi Muhammad</option>
+          <option value="KH MAIMUN ZUBAIR Rahasia 5 Jaria">KH MAIMUN ZUBAIR Rahasia 5 Jari</option>
+          <option value="KH MAIMUN ZUBAIR Ramadhan  Fadhilahnyaa">KH MAIMUN ZUBAIR Ramadhan Fadhilahnya</option>
+          <option value="KH MAIMUN ZUBAIRa">KH MAIMUN ZUBAIR</option>
           </select><br>
           <a href="../index.html" ><button  style="font-size: 25px;background-color: rgba(122, 122, 243, 0.496);">Halaman Utama</button></a><br>
       </div>
@@ -85,14 +98,10 @@
           <img id="ibingkai1" usemap="#mappilih" class="xbingkai1 u640_390" src="imgs/pilih.png" onclick="getMousePosition(event)"  ondblclick="getMousePosition2(event)">
           <img id="ibingkai2" class="xbingkai2 beningx hilangx hilang " src="imgs/iwr4_2.png" >
           <map name="mappilih">
-            <area shape="rect" coords="117.77484130859375, 7.358642578125, 264.77484130859375, 164.358642578125 " onclick="kh_maemun_zuber();">
-            <area shape="rect" coords="28.77484130859375, 169.77134704589844, 171.77484130859375, 326.77134704589844 " onclick="kh_abdul_wahid_zuhdi();">
-            <area shape="rect" coords="212.77484130859375, 174.77134704589844, 358.77484130859375, 320.77134704589844 " onclick="kh_ahmad_bahauddin_nursalim();">
-            <area shape="rect" coords="14.77484130859375, 332.77134704589844, 87.77484130859375, 397.77134704589844 " onclick="masjid_at_taufiq();">
-            <area shape="rect" coords="109.1746826171875, 332.44049072265625, 175.1746826171875, 397.44049072265625 " onclick="talim_mutaalim();">
-            <area shape="rect" coords="213.95440673828125, 342.6468257904053, 363.95440673828125, 475.6468257904053 " onclick="kh_buya_yahya();">
           </map>            
 
+          <map name="mapngaji">
+          </map>            
          <canvas id="canvas" class="cvnbingkai hilang hilangx" width="100px" height="100px"></canvas>
         </div>
 
@@ -118,28 +127,87 @@
   nmpng="imgs/"+document.getElementById("iwrs").value+".png";
   document.getElementById('ibingkai1').src = nmpng;
 
+  const audioPlayer = document.getElementById('ctrl_iwr4_3');
+  var mp3Files = ['mp3/mmz_ksk1.mp3', 'mp3/mmz_ksk2.mp3']; // Ganti dengan nama file MP3 Anda
+
+  let currentFileIndex = 0;
+
+
+function playNext() {
+    currentFileIndex = (currentFileIndex + 1) % mp3Files.length;
+    audioPlayer.src = mp3Files[currentFileIndex];
+    audioPlayer.play();
+}
+
+// Memastikan file pertama dimainkan saat halaman dimuat
+
+function mp3multi() {
+  if (document.getElementById("iwrs").value=="Haflah Madrasah") {
+     mp3Files = ['mp3/haflah madrasah-1.mp3',
+                 'mp3/haflah madrasah-2.mp3',
+                 'mp3/haflah madrasah-3.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="Perintah Sujud") {
+     mp3Files = ['mp3/perintah sujud-1.mp3',
+                 'mp3/perintah sujud-2.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR 2008a") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR 2008a.mp3',
+                 'mp3/KH MAIMUN ZUBAIR 2008b.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR 2017a") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR 2017a.mp3',
+                 'mp3/KH MAIMUN ZUBAIR 2017b.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Dampak Indonesiaa") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR Dampak Indonesiaa.mp3',
+                 'mp3/KH MAIMUN ZUBAIR Dampak Indonesiab.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Lahirnya Nabi Muhammada") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR Lahirnya Nabi Muhammada.mp3',
+                 'mp3/KH MAIMUN ZUBAIR Lahirnya Nabi Muhammadb.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Rahasia 5 Jaria") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR Rahasia 5 Jaria.mp3',
+                 'mp3/KH MAIMUN ZUBAIR Rahasia 5 Jarib.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+  if (document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Ramadhan  Fadhilahnyaa") {
+     mp3Files = ['mp3/KH MAIMUN ZUBAIR Ramadhan Fadhilahnyaa.mp3',
+                'mp3/KH MAIMUN ZUBAIR Ramadhan Fadhilahnyab.mp3',
+                'mp3/KH MAIMUN ZUBAIR Ramadhan Fadhilahnyac.mp3']; // Ganti dengan nama file MP3 Anda
+  }
+
+  audioPlayer.addEventListener('ended', playNext);
+  audioPlayer.src = mp3Files[currentFileIndex];
+  audioPlayer.play();
+  //alert("masuk..");
+}
+
+
+function MUJADDIDUN() {
+  if (document.getElementById("iwrs").value=="KITAB-AL-ULAMA-AL-MUJADDIDUN") {
+    window.location.href = '../al-ulama-al-mujaddidun/index.html'; 
+  }
+  if (document.getElementById("iwrs").value=="KITAB-JALALAIN") {
+    window.location.href = '../jalalain_kh_maemun_zuber/index.html'; 
+  }
+  if (document.getElementById("iwrs").value=="Haflah Madrasah" ||
+      document.getElementById("iwrs").value=="Perintah Sujud" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR 2008a" ||
+      document.getElementById("iwrs").value=="Perintah Sujud" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR 2017a" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Dampak Indonesiaa" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Lahirnya Nabi Muhammada" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Rahasia 5 Jaria" ||
+      document.getElementById("iwrs").value=="KH MAIMUN ZUBAIR Ramadhan  Fadhilahnyaa") {
+    mp3multi();
+  }
+}
+
+
 function kh_maemun_zuber() {
     window.location.href = 'kh_maemun_zuber/index.html'; 
-}
-
-function kh_abdul_wahid_zuhdi() {
-    window.location.href = 'kh_abdul_wahid_zuhdi/index.html'; 
-}
-
-function kh_ahmad_bahauddin_nursalim() {
-    window.location.href = 'kh_ahmad_bahauddin_nursalim/index.html'; 
-}
-
-function masjid_at_taufiq() {
-    window.location.href = 'masjid_at_taufiq/index.html'; 
-}
-
-function talim_mutaalim() {
-    window.location.href = 'ta_lim_muta_alim/index.html'; 
-}
-
-function kh_buya_yahya() {
-    window.location.href = 'kh_buya_yahya/index.html'; 
 }
 
 function mulai() {
@@ -198,6 +266,9 @@ function gambar()
   document.getElementById("vsrc_iwr4_3").src=vnmfile;
   
   document.getElementById('ibingkai1').useMap=nmmap;
+
+  MUJADDIDUN();
+  //alert(document.getElementById("iwrs").value);
 }
 
 function mmz_ksk()
@@ -206,14 +277,6 @@ function mmz_ksk()
   document.getElementById("ctrl_iwr4_3").src=nmfile;
   document.getElementById("src_iwr4_3").src=nmfile;
   start1(0,1038.79889,1);
-
-}
-function baidhowi()
-{
-  nmfile="mp3/baidhowi_2_154.mp3";
-  document.getElementById("ctrl_iwr4_3").src=nmfile;
-  document.getElementById("src_iwr4_3").src=nmfile;
-  start1(0,4142.598792,1);
 
 }
 function getMousePosition(event) {
